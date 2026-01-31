@@ -1,103 +1,62 @@
-# 🍆🍑 Funky Prints - Webseite
+# Funky Prints Store - A Modern Vue.js Showcase
 
-Eine freche, moderne Webseite für 3D-gedruckte erotische Kunstwerke.
+Dies ist eine dynamische E-Commerce-Shopfront, die mit Vue.js 3, Vite, Pinia und Tailwind CSS erstellt wurde. Die Anwendung demonstriert moderne Frontend-Architektur und Best Practices, einschließlich reaktivem State-Management, komponentenbasierter Entwicklung und einem interaktiven Benutzererlebnis.
+
+## ✨ Features
+
+- **Dynamische Produktgalerie:** Produkte werden zentral über einen Pinia-Store verwaltet und in einer ansprechenden Galerie angezeigt.
+- **Interaktives Produktdetail-Modal:** Ein Klick auf ein Produkt öffnet ein Modal mit detaillierten Informationen, Farbauswahl, Mengenregler und einem "In den Warenkorb"-Button.
+- **Zentrales State Management:** Die gesamte Anwendungslogik – Produkte, Modal-Status, Warenkorb – wird sauber und effizient mit Pinia, dem offiziellen State-Management-Tool für Vue.js, verwaltet.
+- **Modernes Styling:** Das Design wird mit Tailwind CSS und dem daisyUI-Komponenten-Framework umgesetzt, was ein schnelles, responsives und anpassbares Styling ermöglicht.
+- **Optimierte Entwicklungsumgebung:** Gebaut mit Vite für blitzschnelle Startzeiten, Hot Module Replacement (HMR) und optimierte Builds.
+- **TypeScript-Integration:** Die gesamte Codebasis ist in TypeScript geschrieben, um die Codequalität, Wartbarkeit und Entwicklererfahrung zu verbessern.
 
 ## 🚀 Tech Stack
 
-- **Vue 3** - Modernes Frontend Framework
-- **Vite** - Schneller Build-Tool
-- **Tailwind CSS** - Utility-First CSS Framework
-- **DaisyUI** - Component Library für Tailwind
+- **Framework:** [Vue.js 3](https://vuejs.org/) (Composition API mit `<script setup>`)
+- **Build-Tool:** [Vite](https://vitejs.dev/)
+- **State Management:** [Pinia](https://pinia.vuejs.org/)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/) & [daisyUI](https://daisyui.com/)
+- **Sprache:** [TypeScript](https://www.typescriptlang.org/)
 
-## 📦 Installation
+## 🛠️ Project Setup
 
-```bash
-# Dependencies installieren
-npm install
+1.  **Abhängigkeiten installieren:**
+    ```bash
+    npm install
+    ```
 
-# Development Server starten
-npm run dev
+2.  **Entwicklungsserver starten:**
+    ```bash
+    npm run dev
+    ```
 
-# Production Build erstellen
-npm run build
+3.  **Produktions-Build erstellen:**
+    ```bash
+    npm run build
+    ```
 
-# Production Build testen
-npm run preview
+## 📂 Projektstruktur
+
+```
+/funky-prints-store
+├── public/                 # Statische Assets
+├── src/
+│   ├── assets/             # Bilder, Schriftarten etc.
+│   ├── components/         # Vue-Komponenten (Navbar, ProductGallery, ProductDetailModal, etc.)
+│   ├── stores/             # Pinia Stores (z.B. productStore.ts)
+│   ├── App.vue             # Haupt-App-Komponente
+│   ├── main.ts             # Anwendungseinstiegspunkt
+│   └── style.css           # Globale Styles
+├── index.html              # HTML-Einstiegspunkt
+├── package.json            # Projekt-Metadaten und Abhängigkeiten
+├── tailwind.config.js      # Konfiguration für Tailwind CSS
+└── vite.config.ts          # Konfiguration für Vite
 ```
 
-## 🎨 Features
+## 🎯 Nächste Schritte
 
-- ✨ Animierte Landing Page mit bunten Gradients
-- 🖼️ Produkt-Galerie mit Platzhaltern (Emojis)
-- 📱 Voll responsiv (Mobile-First)
-- 🎭 Freches, verspieltes Design
-- 🛍️ Shop-Integration vorbereitet (Links zu externem Shop)
-- 📸 Social Media Integration (Instagram, TikTok)
-- 🇩🇪 Komplett auf Deutsch
-
-## 🔧 Anpassungen
-
-### Produkte ändern
-Bearbeite `/src/components/ProductGallery.vue` und passe das `products` Array an.
-
-### Farben anpassen
-Bearbeite `/tailwind.config.js` unter `theme.extend.colors` und `daisyui.themes`.
-
-### Bilder hinzufügen
-Ersetze die Emoji-Platzhalter in der ProductGallery mit echten Produktbildern:
-```vue
-<img :src="product.image" :alt="product.name" class="w-full h-full object-cover" />
-```
-
-### Shop-Links einbinden
-Aktualisiere die Button-Links in den Komponenten:
-- `ProductGallery.vue` - "Zum Shop" Buttons
-- `Navbar.vue` - "Zum Shop" Button im Header
-
-## 📝 Nächste Schritte
-
-1. **Produktfotos hinzufügen** - Echte Bilder statt Emojis
-2. **Shop-System wählen**:
-   - Etsy (einfach, populär)
-   - Shopify (professionell)
-   - WooCommerce (WordPress)
-   - Stripe Payment Links
-3. **Rechtliches**:
-   - Impressum erstellen
-   - Datenschutzerklärung hinzufügen
-   - AGB erstellen
-4. **Social Media**:
-   - Instagram-Account verlinken
-   - TikTok-Account verlinken
-5. **Domain & Hosting**:
-   - Domain registrieren
-   - Hosting wählen (Netlify, Vercel, etc.)
-
-## 🎯 Empfohlene Shop-Lösungen für Deutschland
-
-### Etsy
-- ✅ Einfache Einrichtung
-- ✅ Integrierte Zahlungsabwicklung
-- ✅ Große Community
-- ✅ Automatische Rechnungen
-- ❌ Gebühren pro Verkauf
-
-### Shopify
-- ✅ Professionell
-- ✅ Viele Payment-Optionen
-- ✅ Gute Buchhaltungs-Integration
-- ❌ Monatliche Kosten
-
-### Stripe Payment Links
-- ✅ Sehr einfach
-- ✅ Günstig
-- ✅ Schnell einzurichten
-- ❌ Keine Produktverwaltung
-
-## 🔞 Hinweis
-
-Diese Webseite präsentiert Produkte für Erwachsene (18+). Stelle sicher, dass alle rechtlichen Anforderungen erfüllt sind.
-
-## 📧 Support
-
-Bei Fragen oder Anpassungswünschen einfach melden!
+- [ ] **Warenkorb-Logik implementieren:** Die `addToCart`-Aktion im `productStore` so erweitern, dass Produkte tatsächlich in einen `cart`-State gelegt werden.
+- [ ] **Warenkorb-Ansicht erstellen:** Eine neue Komponente (z.B. ein ausfahrbares Seitenteil oder eine eigene Seite) entwickeln, die die Artikel im Warenkorb anzeigt.
+- [ ] **Warenkorb-Icon in Navbar:** Das Warenkorb-Icon in der `Navbar` so anpassen, dass es die aktuelle Anzahl der Artikel im Warenkorb anzeigt.
+- [ ] **Checkout-Prozess (simuliert):** Einen einfachen Checkout-Flow erstellen, der die Bestellung "abschickt" und den Warenkorb leert.

@@ -2,7 +2,7 @@
 
 ## Zweck & Fähigkeiten
 
-Funky Prints ist eine moderne, optisch ansprechende Vue.js-Webanwendung, die für den Verkauf von 3D-gedruckten erotischen Kunstwerken konzipiert wurde. Die Seite legt Wert auf ein einzigartiges, farbenfrohes Design, eine klare Benutzerführung und eine performance-optimierte Darstellung. Zukünftig wird sie einen einfachen Bestellprozess via "Magic Link" und die Möglichkeit für Spezialanfertigungen bieten.
+Funky Prints ist eine dynamische E-Commerce-Shopfront, die mit Vue.js 3, Vite, Pinia und Tailwind CSS erstellt wurde. Die Anwendung demonstriert moderne Frontend-Architektur, einschließlich reaktivem State-Management, komponentenbasierter Entwicklung und einem interaktiven Benutzererlebnis. Das Kern-Feature ist eine Produktgalerie mit einem per Klick aufrufbaren Detail-Modal, um Produkte zu konfigurieren und in den Warenkorb zu legen.
 
 ## Projektübersicht & Design
 
@@ -10,9 +10,9 @@ Funky Prints ist eine moderne, optisch ansprechende Vue.js-Webanwendung, die fü
 
 *   **Framework**: Vue.js 3 (Composition API mit `<script setup>`)
 *   **Build-Tool**: Vite
+*   **State Management**: Pinia
 *   **Sprache**: TypeScript
 *   **Styling**: Tailwind CSS mit dem **DaisyUI**-Plugin
-*   **Deployment**: Automatisches Deployment auf GitHub Pages bei jedem Push.
 
 ### Design & Theme ("funky")
 
@@ -26,39 +26,36 @@ Funky Prints ist eine moderne, optisch ansprechende Vue.js-Webanwendung, die fü
 
 ---
 
-## Aktueller Plan: Bestellprozess & Automatisierung
+## Aktueller Plan: Warenkorb-Implementierung
 
-### Phase 1: CI/CD & Projekt-Setup (In Arbeit)
+### Phase 1: Warenkorb-Logik im Store
 
-1.  **Vite-Konfiguration für GitHub Pages**: Die `vite.config.ts` wird aktualisiert, um den `base`-Pfad für das Deployment auf GitHub Pages korrekt zu setzen (`/funky-prints-store/`).
-2.  **Automatisches Deployment**: Ein GitHub Actions Workflow (`.github/workflows/deploy.yml`) wird erstellt. Dieser wird bei jedem Push in das `main`-Branch automatisch:
-    *   Die `npm`-Abhängigkeiten installieren (`npm install`).
-    *   Die Anwendung für die Produktion bauen (`npm run build`).
-    *   Den gebauten `dist`-Ordner auf dem `gh-pages`-Branch veröffentlichen.
-3.  **Git-Initialisierung**: Das lokale Verzeichnis wird als Git-Repository initialisiert und mit dem von dir bereitgestellten Remote-Repository auf GitHub verbunden.
+1.  **State erweitern**: Im `productStore` einen `cart`-State (Array) für die Warenkorb-Artikel und einen `isCartOpen`-State (boolean) für die Sichtbarkeit des Warenkorbs hinzufügen.
+2.  **`addToCart`-Aktion implementieren**: Die bestehende `addToCart`-Funktion im Modal so anpassen, dass sie das konfigurierte Produkt (mit Menge und Farbe) tatsächlich in den `cart`-State des Stores legt.
+3.  **Warenkorb-Aktionen erstellen**: Neue Aktionen im Store definieren (z.B. `toggleCart`, `removeFromCart`, `updateQuantity`), um den Warenkorb zu verwalten.
 
-### Phase 2: Feature-Entwicklung
+### Phase 2: UI-Komponenten
 
-*   **Produktdetails erweitern**:
-    *   Füge eine **Stückzahlauswahl** zu jedem Produkt hinzu.
-    *   Füge eine **Farbauswahl** (z.B. mit Radio-Buttons) hinzu.
-*   **Bestellprozess (Magic Link Simulation)**:
-    *   Implementiere einen "Bestellen"-Button.
-    *   Bei Klick wird eine Funktion ausgelöst, die die ausgewählten Produktdaten (Name, Stückzahl, Farbe) sammelt und eine Bestätigung auf der Konsole ausgibt, um den "Magic Link"-Flow zu simulieren.
-*   **Neue Seiten erstellen**:
-    *   **Kontakt-Seite**: Eine neue Komponente `Contact.vue` mit einem Kontaktformular und Geschäftsdetails wird erstellt.
-    *   **Custom-Seite**: Eine Platzhalter-Komponente `Custom.vue` für zukünftige Upload-Funktionen von 3D-Modellen wird angelegt.
+1.  **Warenkorb-Komponente erstellen (`ShoppingCart.vue`)**: Eine neue Komponente entwickeln, die als seitliches Overlay oder eigene Seite dient und die Artikel aus dem `cart`-State anzeigt.
+2.  **Warenkorb-Icon in Navbar anpassen**: Das Warenkorb-Icon in `Navbar.vue` so anpassen, dass es die Anzahl der Artikel im Warenkorb anzeigt und beim Klick die `toggleCart`-Aktion auslöst.
+3.  **`ShoppingCart.vue` integrieren**: Die neue Warenkorb-Komponente in `App.vue` einbinden und ihre Sichtbarkeit über den `isCartOpen`-State steuern.
 
 ---
 
 ## Abgeschlossene Aufgaben
 
+### Refactoring: Interaktives Produktdetail-Modal & State Management
+
+*   **Pinia Store erstellt (`productStore.ts`)**: Die Produktdaten wurden zentralisiert und um Bild-URLs/Beschreibungen erweitert. Die Logik zur Steuerung eines Modals wurde implementiert.
+*   **`ProductGallery.vue` umgebaut**: Die Galerie bezieht ihre Daten nun aus dem Pinia-Store. Ein Klick auf ein Produkt öffnet die Detailansicht.
+*   **`ProductDetailModal.vue` erstellt**: Eine neue Komponente wurde für die Detailansicht geschaffen, die die Auswahl von Farbe und Menge ermöglicht.
+*   **Globale Modal-Verfügbarkeit**: Das Modal wurde in `App.vue` integriert und wird über den globalen State gesteuert.
+*   **Fehlerbehebung**: Ein Syntaxfehler im Store (Anführungszeichen) und ein Konfigurationsfehler in `vite.config.ts` (Bild-URLs) wurden behoben.
+*   **Dokumentation aktualisiert**: Eine neue `README.md` wurde erstellt.
+
 ### Initiales Setup & Fehlerbehebung
 
 *   **Code-Analyse & Reparatur**: Eine nicht funktionierende Vue.js-Anwendung wurde erfolgreich repariert.
-*   **TypeScript-Konvertierung**: Alle JavaScript-Konfigurationsdateien wurden auf TypeScript umgestellt (`tailwind.config.ts`, `postcss.config.ts`).
-*   **Vite-Konfiguration**: `vite.config.ts` wurde für eine korrekte Verarbeitung von Vue und PostCSS konfiguriert.
-*   **Abhängigkeiten repariert**: Fehlende Pakete wurden ergänzt und `npm install` ausgeführt.
-*   **DaisyUI-Theme-Aktivierung**: Das `data-theme="funky"`-Attribut wurde in der `index.html` hinzugefügt, um das custom Theme zu laden.
-*   **PostCSS-Konflikt gelöst**: Der `ERR_REQUIRE_ESM`-Fehler wurde durch Umbenennung von `postcss.config.ts` in `postcss.config.cjs` und Anpassung des Modul-Exports behoben.
-
+*   **TypeScript-Konvertierung**: Alle JavaScript-Konfigurationsdateien wurden auf TypeScript umgestellt.
+*   **DaisyUI-Theme-Aktivierung**: Das `data-theme="funky"`-Attribut wurde hinzugefügt, um das custom Theme zu laden.
+*   **PostCSS-Konflikt gelöst**: Der `ERR_REQUIRE_ESM`-Fehler wurde durch Umbenennung und Anpassung der Konfigurationsdatei behoben.
