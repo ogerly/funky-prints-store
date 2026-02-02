@@ -7,7 +7,11 @@
     <Contact />
     <Custom />
     <Footer />
+
+    <!-- Overlays -->
     <ProductDetailModal v-if="productStore.isModalOpen" />
+    <ShoppingCart />
+
   </div>
 </template>
 
@@ -20,11 +24,12 @@ import Contact from './components/Contact.vue'
 import Custom from './components/Custom.vue'
 import Footer from './components/Footer.vue'
 import ProductDetailModal from './components/ProductDetailModal.vue'
+import ShoppingCart from './components/ShoppingCart.vue' // <-- Importiert
 import { useProductStore } from './stores/productStore'
 
 const productStore = useProductStore()
-
 </script>
 
 <style>
+/* Globale Übergänge für ein smoothes Erlebnis könnten hier rein */
 </style>

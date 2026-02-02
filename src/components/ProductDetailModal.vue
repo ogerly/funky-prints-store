@@ -55,13 +55,13 @@
               <span class="font-bold text-lg w-4 text-center">{{ quantity }}</span>
               <button class="btn btn-xs btn-outline btn-primary" @click="incrementQuantity">+</button>
             </div>
-            <span class="text-4xl font-bold text-funky-pink">{{ productStore.selectedProduct?.price }}€</span>
+            <span class="text-4xl font-bold text-funky-pink">{{ productStore.selectedProduct?.price.toFixed(2) }}€</span>
           </div>
 
           <!-- Add to Cart Button -->
           <button 
             class="btn btn-primary btn-block text-white text-lg"
-            @click="addToCart"
+            @click="handleAddToCart"
             :disabled="!selectedColor"
           >
             <span v-if="!selectedColor">Bitte Farbe wählen</span>
@@ -96,18 +96,17 @@ const decrementQuantity = () => {
   }
 }
 
-const addToCart = () => {
+const handleAddToCart = () => {
   if (!productStore.selectedProduct || !selectedColor.value) {
-    alert('Etwas ist schief gelaufen!')
+    // Safety check, should not happen with the button disabled
     return
   }
-  console.log('--- ADD TO CART ---');
-  console.log(`Produkt: ${productStore.selectedProduct.name}`);
-  console.log(`Menge: ${quantity.value}`);
-  console.log(`Farbe: ${selectedColor.value}`);
-  console.log('Produkt würde jetzt dem Warenkorb hinzugefügt.');
-  alert(`"${productStore.selectedProduct.name}" wurde zum Warenkorb hinzugefügt!`);
-  productStore.closeModal()
+  // Call the store action to add the item to the cart
+  productStore.addToCart(
+    productStore.selectedProduct,
+    selectedColor.value,
+    quantity.value
+  )
 }
 </script>
 
