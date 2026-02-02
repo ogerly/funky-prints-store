@@ -1,11 +1,11 @@
 <template>
-  <div data-theme="funky" class="min-h-screen">
+  <div data-theme="funky" class="min-h-screen scroll-smooth">
     <Navbar />
     <Hero />
-    <ProductGallery />
-    <About />
-    <Contact />
-    <Custom />
+    <ProductGallery id="galerie" />
+    <About id="about"/>
+    <Custom id="custom"/>
+    <Contact id="contact"/>
     <Footer />
 
     <!-- Overlays -->
@@ -24,7 +24,7 @@ import Contact from './components/Contact.vue'
 import Custom from './components/Custom.vue'
 import Footer from './components/Footer.vue'
 import ProductDetailModal from './components/ProductDetailModal.vue'
-import ShoppingCart from './components/ShoppingCart.vue' // <-- Importiert
+import ShoppingCart from './components/ShoppingCart.vue'
 import { useProductStore } from './stores/productStore'
 
 const productStore = useProductStore()
@@ -32,4 +32,7 @@ const productStore = useProductStore()
 
 <style>
 /* Globale Übergänge für ein smoothes Erlebnis könnten hier rein */
+html {
+  scroll-behavior: smooth;
+}
 </style>

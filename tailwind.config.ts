@@ -8,8 +8,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        display: ['"Bebas Neue"', 'Impact', 'sans-serif'],
-        body: ['"DM Sans"', 'sans-serif'],
+        display: ['"Fredoka One"', 'cursive'],
+        sans: ['"Poppins"', 'sans-serif'],
       },
       colors: {
         'funky-pink': '#FF1B8D',

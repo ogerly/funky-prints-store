@@ -21,8 +21,12 @@ Funky Prints ist eine dynamische E-Commerce-Shopfront, die mit Vue.js 3, Vite, P
     *   `secondary` (Zweitaktion): `#9D4EDD` (Funky Purple)
     *   `accent` (Hervorhebung): `#4CC9F0` (Funky Blue)
 *   **Schriftarten**:
-    *   **Display**: "Bebas Neue" für Überschriften
+    *   **Display**: "Fredoka One" für Überschriften (ersetzt "Bebas Neue")
     *   **Body**: "DM Sans" für Fließtext
+*   **Typografie-Stil**:
+    *   **Überschriften**: Große, fette Schrift mit einem Farbverlauf von Pink zu Lila.
+    *   **Fließtext**: Weicheres, dunkles Grau statt reinem Schwarz für besseren Kontrast und Lesbarkeit.
+*   **Hintergrund**: Subtiler, heller Gradient von Pink über Lila zu Orange für eine luftige, dynamische Anmutung.
 
 ---
 
@@ -43,6 +47,14 @@ Funky Prints ist eine dynamische E-Commerce-Shopfront, die mit Vue.js 3, Vite, P
 ---
 
 ## Abgeschlossene Aufgaben
+
+### Design-Anpassung ("Funky Style")
+
+*   **Typografie aktualisiert**: Die Schriftart für Überschriften wurde in der Tailwind-Konfiguration auf "Fredoka One" geändert.
+*   **Farbverläufe hinzugefügt**: Alle Hauptüberschriften auf der Seite verwenden nun einen Farbverlauf von Pink zu Lila.
+*   **Textfarben angepasst**: Fließtext wurde von Schwarz auf ein dunkles Grau geändert, um den Kontrast zu verbessern.
+*   **Hintergrund überarbeitet**: Der globale Hintergrund wurde mit einem helleren, subtileren Farbverlauf versehen.
+*   **Fehlerbehebung**: Ein Fehler in der `index.css` wurde behoben, der durch eine veraltete `@import`-Regel verursacht wurde.
 
 ### Refactoring: Interaktives Produktdetail-Modal & State Management
 
